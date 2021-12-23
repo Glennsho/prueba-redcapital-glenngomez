@@ -37,11 +37,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Relacion con modelo Rol
     public function roles()
     {
         return $this->belongsToMany('App\Rol');
     }
 
+    // Relacion con modelo Archivo
     public function files()
     {
         return $this->belongsToMany('App\Archivo');

@@ -8,6 +8,7 @@ class ArchivoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     * NOTA: CREADO CON FINES DE PRUEBA
      *
      * @return void
      */
