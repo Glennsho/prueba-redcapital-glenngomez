@@ -24,9 +24,9 @@ class FilesController extends Controller
      */
     public function index()
     {
-        //$archivos = Archivo::where('user_id', Auth::user('id'))->to_list();
         $user_aux = auth()->user()->id;
         $archivos = Archivo::where('user_id', $user_aux)->get();
+        // Para debug
         // dd($archivos);
         return view('users.files.index')->with('archivos', $archivos);
     }
@@ -56,6 +56,7 @@ class FilesController extends Controller
      */
     public function store(Request $request, Archivo $archivo)
     {
+        // Dump & Die para debug de request
         //dd($request);
 
         $user = auth()->user();
@@ -70,6 +71,7 @@ class FilesController extends Controller
             $archivo->ruta_acceso = str_replace('public', 'storage', $ruta);
         }
 
+        // Mensaje de operacion exitosa/erronea
         if($archivo->save()){
             $request->session()->flash('success', 'El archivo ha sido cargado exitosamente.');
         }else{

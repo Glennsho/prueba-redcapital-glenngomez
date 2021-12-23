@@ -62,6 +62,7 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
 
+        // Mensaje de operacion exitosa/erronea
         if($user->save()){
             $request->session()->flash('success', 'El usuario ' . $user->name . ' ha sido actualizado');
         }else{
